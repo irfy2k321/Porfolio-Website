@@ -1,0 +1,47 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background: #2F5A76;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Corrected the semicolon to a colon */
+        }
+        .container {
+            position: relative;
+            width: 96%;
+            height: 140px;
+            background: #BFE33A;
+        }
+        .small-square {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            background: #2F5A76;
+            top: 0px; /* Adjust this value to position the small square vertically */
+            left: 145px; /* Adjust this value to position the small square horizontally */
+            rotate: 45deg; /* Corrected the property name to 'transform' */
+        }
+        .small-square2 {
+            position: relative;
+            width: 65px;
+            height: 65px;
+            background: #BFE33A;
+            top: -100px; /* Adjust this value to position the small square vertically */
+            left: 180px; /* Adjust this value to position the small square horizontally */
+            rotate: 45deg; /* Corrected the property name to 'transform' */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="small-square"></div>
+        <div class="small-square2"></div>
+    </div>
+</body>
+</html>
