@@ -21,154 +21,174 @@ body {
     height: 100%;
     background: black;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Tesseract Container */
-.tesseract-container {
+/* Spinner Animations */
+.spinner {
+  width: 40px;
+  height: 40px;
+  animation: spinner-y0fdc1 15s forwards infinite ease;
+  position: relative;
+  transform-style: preserve-3d;
+  margin-bottom: 0px;
+}
+
+.spinner > div {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 2px solid crimson;
+}
+
+.spinner div:nth-of-type(1) {
+  transform: translateZ(-20px) rotateY(180deg);
+}
+
+.spinner div:nth-of-type(2) {
+  transform: rotateY(-270deg) translateX(50%);
+  transform-origin: top right;
+}
+
+.spinner div:nth-of-type(3) {
+  transform: rotateY(270deg) translateX(-50%);
+  transform-origin: center left;
+}
+
+.spinner div:nth-of-type(4) {
+  transform: rotateX(90deg) translateY(-50%);
+  transform-origin: top center;
+}
+
+.spinner div:nth-of-type(5) {
+  transform: rotateX(-90deg) translateY(50%);
+  transform-origin: bottom center;
+}
+
+.spinner div:nth-of-type(6) {
+  transform: translateZ(20px);
+}
+
+.spinner2 {
+  width: 80px;
+  height: 80px;
+  animation: spinner-y0fdc2 15s forwards infinite ease;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.spinner2 > div {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 2px solid #333;
+}
+
+.spinner2 div:nth-of-type(1) {
+  transform: translateZ(-40px) rotateY(180deg);
+}
+
+.spinner2 div:nth-of-type(2) {
+  transform: rotateY(-270deg) translateX(50%);
+  transform-origin: top right;
+}
+
+.spinner2 div:nth-of-type(3) {
+  transform: rotateY(270deg) translateX(-50%);
+  transform-origin: center left;
+}
+
+.spinner2 div:nth-of-type(4) {
+  transform: rotateX(90deg) translateY(-50%);
+  transform-origin: top center;
+}
+
+.spinner2 div:nth-of-type(5) {
+  transform: rotateX(-90deg) translateY(50%);
+  transform-origin: bottom center;
+}
+
+.spinner2 div:nth-of-type(6) {
+  transform: translateZ(40px);
+}
+
+@keyframes spinner-y0fdc1 {
+  0% {
+    transform: rotate(0deg) rotateX(0deg) rotateY(0deg);
+  }
+  24% {
+    transform: rotate(0deg) rotateX(360deg) rotateY(360deg);
+    width: 40px;
+    height: 40px;
+  }
+  25% {
+    transform: rotate(0deg) rotateX(360deg) rotateY(360deg);
+    width: 60px;
+    height: 60px;
+  }
+  50% {
+    transform: rotate(225deg) rotateX(360deg) rotateY(360deg);
+    width: 60px;
+    height: 60px;
+  }
+  75% {
+    transform: rotate(0deg) rotateX(360deg) rotateY(360deg);
+    width: 60px;
+    height: 60px;
+  }
+  76% {
+    transform: rotate(0deg) rotateX(360deg) rotateY(360deg);
+    width: 40px;
+    height: 40px;
+  }
+  96% {
+    transform: rotate(0deg) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotate(0deg) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes spinner-y0fdc2 {
+  0% {
+    transform: rotate(45deg) rotateX(0deg) rotateY(0deg);
+  }
+  24% {
+    transform: rotate(45deg) rotateX(-360deg) rotateY(-360deg);
+    width: 80px;
+    height: 80px;
+  }
+  25% {
+    transform: rotate(45deg) rotateX(-360deg) rotateY(-360deg);
     width: 100px;
     height: 100px;
-    perspective: 800px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Tesseract */
-.tesseract {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: rotateTesseract 3s infinite linear;
-}
-
-/* Tesseract Faces */
-.tesseract .face {
-    position: absolute;
+  }
+  50% {
+    transform: rotate(-180deg) rotateX(-360deg) rotateY(-360deg);
     width: 100px;
     height: 100px;
-    background: crimson;
-    opacity: 0.8;
-    border: 2px solid #fff;
-    box-sizing: border-box;
+  }
+  75% {
+    transform: rotate(45deg) rotateX(-360deg) rotateY(-360deg);
+    width: 100px;
+    height: 100px;
+  }
+  76% {
+    transform: rotate(45deg) rotateX(-360deg) rotateY(-360deg);
+    width: 80px;
+    height: 80px;
+  }
+  96% {
+    transform: rotate(45deg) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotate(45deg) rotateX(0deg) rotateY(0deg);
+  }
 }
 
-/* Positioning Faces */
-.tesseract .front  { transform: translateZ(50px); }
-.tesseract .back   { transform: rotateY(180deg) translateZ(50px); }
-.tesseract .left   { transform: rotateY(-90deg) translateZ(50px); }
-.tesseract .right  { transform: rotateY(90deg) translateZ(50px); }
-.tesseract .top    { transform: rotateX(90deg) translateZ(50px); }
-.tesseract .bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-/* Tesseract Rotation Animation */
-@keyframes rotateTesseract {
-    0% { transform: rotateX(0) rotateY(0); }
-    100% { transform: rotateX(360deg) rotateY(360deg); }
-}
-
-/* Loading text */
-.loading-text {
-    font-size: 28px;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    animation: technoBlink 1.5s infinite alternate, glitch 1s infinite;
-    position: relative;
-}
-
-.loading-text::before,
-.loading-text::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    overflow: hidden;
-    clip: rect(0, 900px, 0, 0);
-}
-
-.loading-text::before {
-    left: 2px;
-    text-shadow: -2px 0 red;
-    animation: glitch 1s infinite;
-}
-
-.loading-text::after {
-    left: -2px;
-    text-shadow: -2px 0 blue;
-    animation: glitch-2 1s infinite;
-}
-
-/* Blink effect */
-@keyframes technoBlink {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-/* Glitch effect */
-@keyframes glitch {
-    0% {
-        transform: translate(0);
-        opacity: 1;
-    }
-    20% {
-        transform: translate(-2px, 2px);
-        opacity: 0.8;
-    }
-    40% {
-        transform: translate(-2px, -2px);
-        opacity: 0.6;
-    }
-    60% {
-        transform: translate(2px, 2px);
-        opacity: 0.8;
-    }
-    80% {
-        transform: translate(2px, -2px);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translate(0);
-        opacity: 1;
-    }
-}
-
-@keyframes glitch-2 {
-    0% {
-        transform: translate(0);
-        opacity: 1;
-    }
-    20% {
-        transform: translate(2px, -2px);
-        opacity: 0.8;
-    }
-    40% {
-        transform: translate(2px, 2px);
-        opacity: 0.6;
-    }
-    60% {
-        transform: translate(-2px, -2px);
-        opacity: 0.8;
-    }
-    80% {
-        transform: translate(-2px, 2px);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translate(0);
-        opacity: 1;
-    }
-}
 
 /* Container */
 .container {

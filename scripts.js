@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
             preloader.style.display = "none"; // Hide preloader
             content.style.display = "block";  // Show main content
         }, 1000);
-    }, 3000);  // 5-second delay
+    }, 15000);  // 5-second delay
 
     // Typing Effect
     const textElement = document.getElementById("typing-text");
